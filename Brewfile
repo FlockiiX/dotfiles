@@ -18,4 +18,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "zsh-history-substring-search"
 
+brew "tealdeer"
+brew "git-delta"
+brew "fzf-tab"
+
 cask "iterm2"

@@ -1,0 +1,21 @@
+tap "homebrew/bundle"
+
+brew "git"
+brew "gh"
+brew "ripgrep"
+brew "fd"
+brew "fzf"
+brew "jq"
+brew "yq"
+brew "bat"
+brew "eza"
+brew "zoxide"
+brew "starship"
+brew "lazygit"
+brew "nvm"
+
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "zsh-history-substring-search"
+
+cask "iterm2"

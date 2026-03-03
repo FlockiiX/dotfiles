@@ -1,0 +1,22 @@
+# Resolve dotfiles root based on this file's location
+ZSHRC_FILE="${${(%):-%N}:A}"
+DOTFILES_DIR="${ZSHRC_FILE:h:h}"
+
+# Load modules in a stable order
+for f in \
+  "$DOTFILES_DIR/zsh/env.zsh" \
+  "$DOTFILES_DIR/zsh/path.zsh" \
+  "$DOTFILES_DIR/zsh/options.zsh" \
+  "$DOTFILES_DIR/zsh/history.zsh" \
+  "$DOTFILES_DIR/zsh/completion.zsh" \
+  "$DOTFILES_DIR/zsh/omz-plugins.zsh" \
+  "$DOTFILES_DIR/zsh/aliases.zsh" \
+  "$DOTFILES_DIR/zsh/functions.zsh" \
+  "$DOTFILES_DIR/zsh/prompt.zsh" \
+  "$DOTFILES_DIR/zsh/keybinds.zsh" \
+; do
+  [[ -r "$f" ]] && source "$f"
+done
+
+# Local overrides (NOT in git)
+[[ -r "$DOTFILES_DIR/zsh/local.zsh" ]] && source "$DOTFILES_DIR/zsh/local.zsh" || true

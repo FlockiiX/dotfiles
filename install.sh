@@ -21,5 +21,5 @@ link() {
 link "${DOTFILES_DIR}/zsh/zshrc" "${HOME}/.zshrc"
 link "${DOTFILES_DIR}/config/starship.toml" "${HOME}/.config/starship.toml"
 link "${DOTFILES_DIR}/git/gitconfig" "${HOME}/.gitconfig"
-
+touch "${HOME}/.hushlogin"
 echo "Done. Restart terminal or run: exec zsh"

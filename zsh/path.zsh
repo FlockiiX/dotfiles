@@ -19,7 +19,7 @@ for p in \
   "/opt/homebrew/opt/ruby/bin" \
   "$HOME/.antigravity/antigravity/bin" \
 ; do
-  [[ -d "$p" ]] && path=("$p" $path)
+    path=("$p" $path)
 done
 
 export PATH="${(j/:/)path}"

@@ -24,6 +24,11 @@ done
 
 export PATH="${(j/:/)path}"
 
+# OCaml / opam environment (if installed)
+if command -v opam >/dev/null 2>&1; then
+  eval "$(opam env)"
+fi
+
 # Android Studio JBR (if present)
 if [[ -d "/Applications/Android Studio.app/Contents/jbr/Contents/Home" ]]; then
   export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"

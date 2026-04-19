@@ -8,18 +8,28 @@ fi
 # Use zsh's path array; keep it unique
 typeset -U path
 
-# Preferred bins first (only if they exist)
-for p in \
-  "$HOME/.local/bin" \
-  "$HOME/bin" \
-  "/opt/homebrew/bin" \
-  "/opt/homebrew/sbin" \
-  "/usr/local/bin" \
-  "$HOME/Development/flutter/bin" \
-  "/opt/homebrew/opt/ruby/bin" \
-  "$HOME/.antigravity/antigravity/bin" \
-; do
-    path=("$p" $path)
+# Preferred bins first
+preferred_paths=(
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+  "/usr/local/bin"
+  "$HOME/Development/flutter/bin"
+  "/opt/homebrew/opt/ruby/bin"
+  "$HOME/.antigravity/antigravity/bin"
+)
+
+# Homebrew LLVM (if installed)
+if command -v brew >/dev/null 2>&1; then
+  llvm_prefix="$(brew --prefix llvm 2>/dev/null)"
+  [[ -n "$llvm_prefix" ]] && preferred_paths+=("$llvm_prefix/bin")
+fi
+
+# Prepend only existing directories, preserving the order above
+for (( i=${#preferred_paths[@]}; i>=1; --i )); do
+  p="${preferred_paths[i]}"
+  [[ -d "$p" ]] && path=("$p" $path)
 done
 
 export PATH="${(j/:/)path}"

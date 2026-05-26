@@ -1,5 +1,4 @@
 setopt AUTO_CD
-setopt CORRECT
 
 setopt INTERACTIVE_COMMENTS
 setopt NO_FLOW_CONTROL

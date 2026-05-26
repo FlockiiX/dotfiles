@@ -2,17 +2,25 @@
 bindkey -e
 
 # Fix common terminal sequences (iTerm can send both)
-bindkey '^[[A' up-line-or-history
-bindkey '^[[B' down-line-or-history
-bindkey '^[OA' up-line-or-history
-bindkey '^[OB' down-line-or-history
+if (( $+functions[history-substring-search-up] )); then
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+  bindkey '^[OA' history-substring-search-up
+  bindkey '^[OB' history-substring-search-down
+else
+  bindkey '^[[A' history-beginning-search-backward
+  bindkey '^[[B' history-beginning-search-forward
+  bindkey '^[OA' history-beginning-search-backward
+  bindkey '^[OB' history-beginning-search-forward
+fi
 
 # Home/End/Delete (optional but useful)
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
-# If history-substring-search is loaded, bind it to Ctrl+Up/Down (keeps arrows "normal")
+# Keep Ctrl+Up/Down available for the same filtered history search in terminals
+# that send distinct modified arrow sequences.
 if (( $+functions[history-substring-search-up] )); then
   bindkey '^[[1;5A' history-substring-search-up
   bindkey '^[[1;5B' history-substring-search-down

@@ -21,18 +21,20 @@
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
 
 [user]
-    name = Florian
-    email = florian@berger-bayern.de
-    signingkey = AAD666E6467D2FF3BE088B5A5C2DCA817D173B51
+	name = Florian Berger
+	email = florian@floberger.net
+	signingkey = /Users/flocki/.ssh/id_ed25519
 
 [color]
     ui = auto
     
 [commit]
-    gpgsign = true
+	gpgsign = true
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[gpg]
+	format = ssh

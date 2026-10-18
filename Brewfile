@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 brew "git"
 brew "gh"
 brew "ripgrep"
@@ -22,4 +20,27 @@ brew "tealdeer"
 brew "git-delta"
 brew "fzf-tab"
 
+brew "btop"
+brew "tmux"
+brew "tree"
+brew "tokei"
+brew "hyperfine"
+
+brew "gnupg"
+brew "mkcert"
+
+brew "pre-commit"
+brew "neovim"
+
+brew "sd"
+brew "dust"
+brew "ncdu"
+brew "procs"
+brew "httpie"
+brew "glow"
+brew "atuin"
+brew "broot"
+brew "direnv"
+
 cask "iterm2"
+cask "font-jetbrains-mono-nerd-font"
